@@ -1,33 +1,23 @@
 #!/usr/bin/env node
-// 靜態站點產生器：讀取 content/*.json → 產生 dist/*.html
-
 import fs from 'fs';
 import path from 'path';
 
 const CONTENT_DIR = 'content';
 const ASSETS_DIR = 'assets';
 const DIST_DIR = 'dist';
-const TEMPLATE_FILE = 'template.html';
-const INDEX_TEMPLATE = 'index-template.html';
 
 const CATEGORIES = [
-  '症狀緩解',
-  '飲食建議',
-  '用藥照護',
-  '就醫指引',
-  '生活調適'
+  '症狀緩解', '飲食建議', '用藥照護', '就醫指引', '生活調適'
 ];
 
 function readContentFiles() {
-  const files = fs.readdirSync(CONTENT_DIR).filter(f => f.endsWith('.json'));
-  return files.map(f => {
-    const raw = fs.readFileSync(path.join(CONTENT_DIR, f), 'utf-8');
-    return JSON.parse(raw);
-  });
+  return fs.readdirSync(CONTENT_DIR)
+    .filter(f => f.endsWith('.json'))
+    .map(f => JSON.parse(fs.readFileSync(path.join(CONTENT_DIR, f), 'utf-8')));
 }
 
-function renderCard(item, isIndex = false) {
-  const img = item.image ? `<img src="../${item.image}" alt="" class="card-img">` : '';
+function renderCard(item) {
+  const img = item.image ? `<img src="${item.image}" alt="" class="card-img">` : '';
   const tags = item.tags ? item.tags.map(t => `<span class="tag">${t}</span>`).join('') : '';
   const refs = item.references.map(r => 
     `<a href="${r.url}" target="_blank" rel="noopener" class="ref-${r.type}">${r.title}</a>`
@@ -52,7 +42,7 @@ function renderCard(item, isIndex = false) {
 }
 
 function renderDetailPage(item) {
-  const img = item.image ? `<img src="../${item.image}" alt="${item.title}" class="detail-img">` : '';
+  const img = item.image ? `<img src="${item.image}" alt="${item.title}" class="detail-img">` : '';
   const keyPoints = item.keyPoints.map(p => `<li>${p}</li>`).join('');
   const actions = item.actionItems.map(a => `<li>${a}</li>`).join('');
   const refs = item.references.map(r => 
@@ -66,14 +56,14 @@ function renderDetailPage(item) {
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>${item.title} | 乾了嗎？口乾衛教小站</title>
   <meta name="description" content="${item.summary}">
-  <link rel="stylesheet" href="../styles.css">
-  <link rel="canonical" href="https://your-domain.github.io/dry-mouth-edu/${item.slug}.html">
+  <link rel="stylesheet" href="styles.css">
+  <link rel="canonical" href="https://lijenhsin.github.io/dry-mouth-edu/${item.slug}.html">
 </head>
 <body>
   <header class="site-header">
     <div class="container">
-      <a href="../index.html" class="logo">💧 乾了嗎？口乾衛教小站</a>
-      <nav><a href="../index.html">首頁</a> <a href="../index.html#categories">分類</a></nav>
+      <a href="index.html" class="logo">💧 乾了嗎？口乾衛教小站</a>
+      <nav><a href="index.html">首頁</a> <a href="index.html#categories">分類</a></nav>
     </div>
   </header>
   <main class="container">
@@ -90,32 +80,22 @@ function renderDetailPage(item) {
       ${img}
       <div class="detail-content">
         <section class="summary-box"><p>${item.summary}</p></section>
-        <section>
-          <h2>🔑 重點整理</h2>
-          <ul class="key-points">${keyPoints}</ul>
-        </section>
-        <section>
-          <h2>✅ 你可以這樣做</h2>
-          <ul class="action-items">${actions}</ul>
-        </section>
-        <section>
-          <h2>📚 參考來源</h2>
-          <ul class="references">${refs}</ul>
-        </section>
+        <section><h2>🔑 重點整理</h2><ul class="key-points">${keyPoints}</ul></section>
+        <section><h2>✅ 你可以這樣做</h2><ul class="action-items">${actions}</ul></section>
+        <section><h2>📚 參考來源</h2><ul class="references">${refs}</ul></section>
       </div>
       <footer class="disclaimer">
         <p>⚠️ 本內容僅供衛教參考，不替代專業醫療建議。請諮詢您的醫師或藥師以獲得個人化照護方案。</p>
       </footer>
-      <nav class="detail-nav">
-        <a href="../index.html" class="btn">← 回首頁</a>
-      </nav>
+      <nav class="detail-nav"><a href="index.html" class="btn">← 回首頁</a></nav>
     </article>
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 乾了嗎？口乾衛教小站 | 以 AGENTS.md 為員工手冊持續維護</p>
+      <p>© 2026 乾了嗎？口乾衛教小站 | <a href="https://github.com/lijenhsin/dry-mouth-edu" target="_blank">原始碼</a> | 以 AGENTS.md 為員工手冊持續維護</p>
     </div>
   </footer>
+  <script src="app.js"></script>
 </body></html>`;
 }
 
@@ -149,7 +129,7 @@ function renderIndexPage(items) {
     <div class="container">
       <a href="index.html" class="logo">💧 乾了嗎？口乾衛教小站</a>
       <p class="tagline">口乾症患者的交流空間</p>
-      <nav><a href="#categories">分類瀏覽</a> <a href="https://github.com/your-username/dry-mouth-edu" target="_blank" rel="noopener">GitHub</a></nav>
+      <nav><a href="#categories">分類瀏覽</a> <a href="https://github.com/lijenhsin/dry-mouth-edu" target="_blank" rel="noopener">GitHub</a></nav>
     </div>
   </header>
   <main class="container">
@@ -166,7 +146,7 @@ function renderIndexPage(items) {
   </main>
   <footer class="site-footer">
     <div class="container">
-      <p>© 2026 乾了嗎？口乾衛教小站 | <a href="https://github.com/your-username/dry-mouth-edu" target="_blank">原始碼</a> | 以 AGENTS.md 為員工手冊持續維護</p>
+      <p>© 2026 乾了嗎？口乾衛教小站 | <a href="https://github.com/lijenhsin/dry-mouth-edu" target="_blank">原始碼</a> | 以 AGENTS.md 為員工手冊持續維護</p>
     </div>
   </footer>
   <script src="app.js"></script>
@@ -185,21 +165,16 @@ function main() {
   const items = readContentFiles();
   items.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt));
   
-  // 產生首頁
   fs.writeFileSync(path.join(DIST_DIR, 'index.html'), renderIndexPage(items));
-  
-  // 產生詳細頁
   items.forEach(item => {
     fs.writeFileSync(path.join(DIST_DIR, `${item.slug}.html`), renderDetailPage(item));
   });
   
-  // 複製樣式與腳本
   ['styles.css', 'app.js'].forEach(f => {
     if (fs.existsSync(f)) fs.copyFileSync(f, path.join(DIST_DIR, f));
   });
   
   copyAssets();
-  
   console.log(`✅ 建置完成：${items.length} 篇卡片 → ${DIST_DIR}/`);
 }
 
