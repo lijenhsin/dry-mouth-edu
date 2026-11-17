@@ -1,0 +1,28 @@
+{
+  "title": "口乾吃什麼？軟嫩高水分食物清單",
+  "summary": "吞嚥困難、口腔黏膜敏感時，選擇「軟、爛、多水、低刺激」的食物，減少進食不適。",
+  "category": "飲食建議",
+  "keyPoints": [
+    "優先選擇水分 > 80% 的食物：湯、粥、燉菜、水果泥",
+    "蛋白質來源：嫩豆腐、蒸蛋、魚肉鬆、優格、豆漿",
+    "蔬菜以蒸熟打泥或切極細絲為主，避免纖維粗糙刺激",
+    "調味以天然甜味（南瓜、紅薯）、少鹽、無辣為原則"
+  ],
+  "actionItems": [
+    "早餐：燕麥粥 + 蒸蛋 + 香蕉泥（三高水分、易吞嚥）",
+    "午餐：魚肉鬆飯糰（飯加湯泡軟）+ 南瓜濃湯 + 優格",
+    "晚餐：豆腐蛋花湯麵（麵煮極軟）+ 蒸地瓜泥",
+    "零食：蘋果泥、蒸熟紅薯條、無糖布丁、凍豆腐"
+  ],
+  "references": [
+    { "title": "National Institute of Dental and Craniofacial Research - Eating with Dry Mouth", "url": "https://www.nidcr.nih.gov/health-info/dry-mouth/eating", "type": "guideline" },
+    { "title": "台灣營養學會 - 口乾症飲食照護原則", "url": "https://www.twna.org.tw/nutrition-care/xerostomia-diet", "type": "guideline" },
+    { "title": "林營養師 - 臨床吞嚥調適飲食實務", "url": "https://www.dietitian-lin.com/swallowing-diet", "type": "expert" }
+  ],
+  "reviewedBy": "林營養師（臨床營養科）",
+  "reviewedAt": "2026-10-20",
+  "updatedAt": "2026-11-10",
+  "slug": "diet-soft-food",
+  "tags": ["飲食調適", "吞嚥困難", "高水分食物"],
+  "image": "assets/diet-soft-food-1.webp"
+}

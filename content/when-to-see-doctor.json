@@ -1,0 +1,28 @@
+{
+  "title": "口乾持續超過 3 個月？該掛什麼科、做什麼檢查",
+  "summary": "口乾非單一疾病，可能為藥物副作用、自體免疫疾病、放療後遺症。依伴隨症狀決定掛號科別與檢查項目。",
+  "category": "就醫指引",
+  "keyPoints": [
+    "口腔黏膜科/口腔醫學科：首選，專評估唾液分泌率、口腔黏膜狀況",
+    "風濕免疫科：伴隨關節痛、乾眼、雷諾現象，懷疑 Sjögren 症候群",
+    "耳鼻喉科：合併吞嚥困難、聲音嘶啞、鼻乾、鼻竇炎反覆",
+    "血液腫瘤科：接受過頭頸部放療、化療，或懷疑淋巴增生性疾病"
+  ],
+  "actionItems": [
+    "準備：記錄口乾持續時間、嚴重程度（1-10 分）、伴隨症狀、服用藥物清單",
+    "檢查：全唾液分泌率（未刺激 < 0.1 ml/min、刺激 < 0.7 ml/min 為異常）、Schirmer 測試（淚液）、抗 SS-A/SS-B 抗體",
+    "影像：唾液腺超音波、核磁共振（評估腺體結構）、唾液腺顯像",
+    "帶著紀錄與檢查結果回診，醫師才能精準判斷病因並開立適當治療"
+  ],
+  "references": [
+    { "title": "ACR/EULAR 2016 Sjögren's Classification Criteria", "url": "https://doi.org/10.1002/art.39859", "type": "guideline" },
+    { "title": "台灣口腔醫學會 - 口乾症診斷與治療共識", "url": "https://www.tda.org.tw/consensus/xerostomia", "type": "guideline" },
+    { "title": "Oral Surgery, Oral Medicine, Oral Pathology and Oral Radiology 2020 - Salivary Gland Imaging", "url": "https://doi.org/10.1016/j.oooo.2020.04.008", "type": "paper" }
+  ],
+  "reviewedBy": "陳醫師（口腔醫學科）",
+  "reviewedAt": "2026-08-10",
+  "updatedAt": "2026-10-25",
+  "slug": "when-to-see-doctor",
+  "tags": ["就醫指引", "檢查項目", "科別選擇"],
+  "image": "assets/when-to-see-doctor-1.webp"
+}
