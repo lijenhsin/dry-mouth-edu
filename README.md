@@ -6,8 +6,8 @@
 靜態網站，採資料驅動架構：`content/*.json` 為單一真相來源，經 `build.js` 產生 `dist/*.html`，部署至 GitHub Pages。每篇卡片遵循 AGENTS.md 規範，包含固定欄位、來源可查證、具體可執行建議。
 
 ## 線上瀏覽
-- **GitHub Pages**：https://your-username.github.io/dry-mouth-edu/
-- **GitHub Repo**：https://github.com/your-username/dry-mouth-edu
+- **GitHub Pages**：https://lijenhsin.github.io/dry-mouth-edu/
+- **GitHub Repo**：https://github.com/lijenhsin/dry-mouth-edu
 
 ## 快速開始
 
